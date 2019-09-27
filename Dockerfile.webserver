@@ -1,0 +1,15 @@
+FROM nginx:1.17
+
+#Install node and npm
+RUN apt-get update
+RUN apt-get install -y \
+    nodejs \
+    npm
+
+#Install echo server
+RUN npm install -g laravel-echo-server
+
+#Start echo server
+RUN laravel-echo-server start
+
+
